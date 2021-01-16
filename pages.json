@@ -3,18 +3,21 @@
 		{
 			"path": "pages/tabBar/home/home",
 			"style": {
-				"navigationBarTitleText": "首页"	,
+				"navigationBarTitleText": "首页",
 				"app-plus": {//取消默认状态栏
 					"titleNView":false,
-					"bounce":"horizontal"
-				},
-				"navigationBarBackgroundColor":"#fff"
+					"bounce":"none"
+				}
 			}
 		},
 		{
 			"path":"pages/tabBar/category/category",
 			"style": {
-				"navigationBarTitleText": "分类"
+				"navigationBarTitleText": "分类",
+				"app-plus": {
+					"titleNView":false,
+					"bounce":"none"
+				}
 			}
 		},
 		{

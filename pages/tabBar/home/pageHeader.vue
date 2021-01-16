@@ -14,7 +14,7 @@
 			<view class="icon iconfont">&#xe70a;</view>
 		</view>
 		<!-- 占位 -->
-		<view class="place"></view>
+		<!-- <view class="place"></view> -->
 	</view>
 </template>
 
@@ -41,7 +41,7 @@
 		top: 0;
 		// 条件编译 设置距离顶部高度
 		/* #ifdef APP-PLUS*/
-		top:var(--status-bar-height);
+		padding-top:var(--status-bar-height);
 		/*#endif*/
 	}
 	.addr {
@@ -99,11 +99,11 @@
 			font-size: 42upx;
 		}
 	}
-.place {
-		height: 100upx;
-		background-color: #FFFFFF;
-		/* #ifdef APP-PLUS */
-		margin-top: var(--status-bar-height);
-		/* #endif */
-	}
+// .place {
+// 		height: 100upx;
+// 		background-color: #FFFFFF;
+// 		/* #ifdef APP-PLUS */
+// 		margin-top: var(--status-bar-height);
+// 		/* #endif */
+// 	}
 </style>

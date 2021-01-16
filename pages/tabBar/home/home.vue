@@ -26,9 +26,9 @@
 			<image src="../../../static/img/category/ad.jpg"></image>
 		</view>
 		<!-- 优惠活动 -->
-		<view class="activity">
-			<text>优惠活动</text>
-			<view class="promotion">
+		<view class="promotion" v-if="promotion.length > 0">
+			<view class="promotion-box">
+				<view class="promotion-header-title">优惠活动</view>
 				<view class="promotion-content">
 					<view @tap="handleSelectPromotion(item)" class="promotion-item" v-for="(item, index) in promotion" :key="index">
 						<view class="promotion-title">{{item.title}}</view>
@@ -45,6 +45,7 @@
 				</view>
 			</view>
 		</view>
+				
 	</view>
 </template>
 
@@ -74,9 +75,13 @@
 		    })
 			},
 			handleSelect (item) {//category item event
-			console.log(item);
 				uni.navigateTo({
 					// url:"/pages/goods/goodsList"
+					url:"../../goods/goodsList?name=" + item.name
+				})
+			},
+			handleSelectPromotion(item) {
+				uni.navigateTo({
 					url:"../../goods/goodsList?name=" + item.name
 				})
 			}
@@ -168,31 +173,76 @@
 			margin-top: 20upx;
 		}
 	}
-.promotion-content {
-	
-	.promotion-item {
-		
-		.promotion-title {
-			
-		}
-		.promotion-info {
-			
-			.promotion-info-left {
-				
-				.promotion-ad {
-					
-				}
-				.btn {
-					
-				}
+.promotion {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 40upx;
+		.promotion-box {
+			width: 92%;
+			.promotion-header-title {
+				margin: 10upx 0;
+				padding: 20upx 10upx 0;
+				width: 100%;
+				box-sizing: border-box;
+				font-size: 34upx;
+				font-weight: 700;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
 			}
-			.promotion-info-right {
-				
-				image {
-				
+			.promotion-content {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				.promotion-item {
+					width: 43%;
+					padding: 15upx 3%;
+					background-color: #ebf9f9;
+					border-radius: 10upx;
+					overflow: hidden;
+					display: flex;
+					justify-content: space-between;
+					flex-wrap: wrap;
+					.promotion-title {
+						margin-bottom: 4upx;
+						height: 40upx;
+						display: flex;
+						align-items: center;
+						font-size: 30upx;
+					}
+					.promotion-info {
+						width: 100%;
+						display: flex;
+						.promotion-info-left {
+							display: flex;
+							flex-direction: column;
+							justify-content: space-between;
+							width: 50%;
+							height: 18.86vw;
+							flex-shrink: 0;
+							.promotion-ad {
+								margin-top: 4upx;
+								font-size: 22upx;
+								color: #acb0b0;
+							}
+							.btn {
+								margin-bottom: 4upx;
+								font-size: 24upx;
+								color: #aaaaaa;
+							}
+						}
+						.promotion-info-right {
+							width: 18.86vw;
+							height: 18.86vw;
+							image {
+								width: 18.86vw;
+								height: 18.86vw;
+							}
+						}
+					}
 				}
 			}
 		}
 	}
-}
 </style>
